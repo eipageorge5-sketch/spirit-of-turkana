@@ -84,6 +84,28 @@
     margin-bottom: 20px;
 }
 
+.share-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.share-links a {
+    color: #cbd5e1;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.share-links a:hover {
+    color: #ffa500; /* Turns Turkana Gold on hover */
+    transform: translateY(-3px);
+}
+
+.fa-whatsapp:hover {
+    color: #25D366 !important; /* Authentic WhatsApp Green on hover */
+}
+
 .support-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
