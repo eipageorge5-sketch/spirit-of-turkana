@@ -5,6 +5,14 @@
     overflow-x: hidden;
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1500;
+    transition: all 0.4s ease; /* This makes the JS color change smooth */
+}
+
 /* Video Background Magic */
 .video-hero {
     position: relative;
