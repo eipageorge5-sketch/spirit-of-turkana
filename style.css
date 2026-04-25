@@ -184,6 +184,39 @@
     margin: 0 auto;
 }
 
+
+/* Progress Bar Style */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #ffa500; /* Your Turkana Gold */
+    z-index: 9999;
+    width: 0%;
+}
+
+/* JS-Triggered Navbar Change */
+.navbar.nav-scrolled {
+    background: rgba(10, 15, 29, 0.95) !important;
+    backdrop-filter: blur(10px);
+    padding: 10px 10%;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+/* JS-Triggered Image Animation */
+.chapter-img img {
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 1.2s ease;
+    transform: scale(0.95);
+    opacity: 0.6;
+}
+
+.img-focused {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+}
+
+
 .reverse .chapter-content { flex-direction: row-reverse; }
 
 .chapter-img { flex: 1; }
