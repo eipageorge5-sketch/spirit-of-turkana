@@ -304,6 +304,53 @@
     color: #64748b;
 }
 
+/* FOOTER NAVIGATION STYLING */
+.footer-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-nav ul li {
+    margin-bottom: 12px;
+}
+
+.footer-nav ul li a {
+    color: #cbd5e1; /* Soft slate gray */
+    text-decoration: none;
+    font-size: 0.95rem;
+    position: relative;
+    transition: color 0.3s ease;
+    display: inline-block;
+}
+
+/* The "Senior" Underline Animation */
+.footer-nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 0;
+    background-color: #ffa500; /* Turkana Gold */
+    transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-nav ul li a:hover {
+    color: #ffa500;
+}
+
+.footer-nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Responsive adjustment */
+@media (max-width: 768px) {
+    .footer-nav {
+        margin-top: 20px;
+        text-align: center;
+    }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 768px) {
     .footer-container { grid-template-columns: 1fr; text-align: center; }
