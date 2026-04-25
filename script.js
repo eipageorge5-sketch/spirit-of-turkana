@@ -60,3 +60,79 @@ document.addEventListener('DOMContentLoaded', () => {
     handleNavbar();
     observeChapters();
 });
+
+/**
+ * THE SPIRIT OF TURKANA - DOCUMENTARY LOGIC
+ * High-performance interactions using Vanilla JS
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. DYNAMIC SCROLL PROGRESS BAR
+    const createProgressBar = () => {
+        const progressBar = document.createElement('div');
+        progressBar.id = 'scroll-progress';
+        // Styles are handled in CSS for performance, logic here
+        document.body.appendChild(progressBar);
+
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + "%";
+        });
+    };
+
+    // 2. SMART NAVBAR TRANSFORMATION
+    const initNavbar = () => {
+        const nav = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                nav.classList.add('nav-scrolled');
+            } else {
+                nav.classList.remove('nav-scrolled');
+            }
+        });
+    };
+
+    // 3. IMAGE PARALLAX & FOCUS
+    // This makes the Chapter images "pop" as they enter the screen
+    const observeImages = () => {
+        const images = document.querySelectorAll('.chapter-img img');
+        
+        const observerOptions = {
+            threshold: 0.2, // Trigger when 20% of image is visible
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('img-focused');
+                    // Once animated, we can stop observing to save memory
+                    imageObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        images.forEach(img => imageObserver.observe(img));
+    };
+
+    // 4. SMOOTH SCROLL FOR "EXPLORE" BUTTON
+    const initSmoothScroll = () => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    };
+
+    // RUN ALL INITIALIZATIONS
+    createProgressBar();
+    initNavbar();
+    observeImages();
+    initSmoothScroll();
+});
