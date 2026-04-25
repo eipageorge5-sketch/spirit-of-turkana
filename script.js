@@ -136,3 +136,27 @@ document.addEventListener('DOMContentLoaded', () => {
     observeImages();
     initSmoothScroll();
 });
+
+// Add this inside your existing document.addEventListener('DOMContentLoaded', () => { ... })
+
+const initRestartScroll = () => {
+    const restartBtn = document.querySelector('a[href="#video-hero"]');
+    
+    if (restartBtn) {
+        restartBtn.addEventListener('click', function(e) {
+            e.preventDefault(); // Stop the instant jump
+            
+            // Smoothly scroll to the video section
+            const target = document.getElementById('video-hero');
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    }
+};
+
+// Call the function
+initRestartScroll();
