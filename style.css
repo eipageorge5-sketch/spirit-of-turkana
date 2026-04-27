@@ -359,3 +359,37 @@ html {
     .footer-container { grid-template-columns: 1fr; text-align: center; }
     .footer-social .social-icons { justify-content: center; display: flex; }
 }
+
+/* RESPONSIVE FIX FOR MOBILE */
+@media (max-width: 768px) {
+    .chapter-content {
+        flex-direction: column !important; /* Stacks image on top of text */
+        text-align: center;
+        padding: 20px;
+    }
+
+    .chapter-img {
+        width: 100% !important; /* Makes image full width */
+        margin-bottom: 30px;
+    }
+
+    .chapter-img img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px; /* Adds a nice rounded look for mobile */
+    }
+
+    .chapter-text {
+        width: 100% !important;
+        padding: 0;
+    }
+
+    .chapter-text h3 {
+        font-size: 1.8rem; /* Makes the title fit better on small screens */
+    }
+
+    /* Fix for the "Reverse" chapters so they also stack correctly */
+    .chapter.reverse .chapter-content {
+        flex-direction: column !important;
+    }
+}
