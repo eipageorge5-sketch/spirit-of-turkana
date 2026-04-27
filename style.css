@@ -19,6 +19,9 @@
     display: block;
     margin: 5px 0;  
 }
+html {
+    scroll-behavior: smooth;
+}
 
 .logo {
     display: flex;
