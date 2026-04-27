@@ -18,4 +18,4 @@ This project was built to demonstrate how high-quality visual storytelling can b
 - Mobile-first design
 
 ## 👤 Developer
-**George Eipa** [Portfolio](https://eipageorge5-sketch.github.io/) | [LinkedIn](https://www.linkedin.com/in/george-eipa-93ab4b371/)
+**George Eipa** [Portfolio](https://eipageorge5-sketch.github.io/PORTFOLIO/) | [LinkedIn](https://www.linkedin.com/in/george-eipa-93ab4b371/)
