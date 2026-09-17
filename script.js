@@ -1,162 +1,97 @@
-// 1. Scroll Progress Bar logic
-const createProgressBar = () => {
-    const bar = document.createElement('div');
-    bar.style.height = '4px';
-    bar.style.width = '0';
-    bar.style.backgroundColor = '#ffa500';
-    bar.style.position = 'fixed';
-    bar.style.top = '0';
-    bar.style.left = '0';
-    bar.style.zIndex = '2000';
-    bar.style.transition = 'width 0.1s ease-out';
-    document.body.appendChild(bar);
+/* ================================================================
+   THE SPIRIT OF TURKANA — SCRIPTS
+   Built section by section.
+   ================================================================
 
-    window.addEventListener('scroll', () => {
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrolled = (winScroll / height) * 100;
-        bar.style.width = scrolled + "%";
-    });
-};
+   Contents so far:
+   1.  Navbar scroll state
+   2.  Hamburger / mobile nav
+   3.  Scroll progress bar
 
-// 2. Navbar Transformation
-const handleNavbar = () => {
-    const nav = document.querySelector('.navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
-            nav.style.background = 'rgba(15, 23, 42, 0.9)';
-            nav.style.backdropFilter = 'blur(10px)';
-            nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.3)';
-        } else {
-            nav.style.background = 'transparent';
-            nav.style.backdropFilter = 'none';
-            nav.style.boxShadow = 'none';
-        }
-    });
-};
-
-// 3. Image Focus Interaction (Using Intersection Observer)
-const observeChapters = () => {
-    const chapters = document.querySelectorAll('.chapter-img img');
-    const options = { threshold: 0.5 };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.transform = 'scale(1.05)';
-                entry.target.style.transition = 'transform 1s ease';
-            } else {
-                entry.target.style.transform = 'scale(1)';
-            }
-        });
-    }, options);
-
-    chapters.forEach(img => observer.observe(img));
-};
-
-// Initialize everything when the page loads
-document.addEventListener('DOMContentLoaded', () => {
-    createProgressBar();
-    handleNavbar();
-    observeChapters();
-});
-
-/**
- * THE SPIRIT OF TURKANA - DOCUMENTARY LOGIC
- * High-performance interactions using Vanilla JS
- */
+   ================================================================ */
 
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. DYNAMIC SCROLL PROGRESS BAR
-    const createProgressBar = () => {
-        const progressBar = document.createElement('div');
-        progressBar.id = 'scroll-progress';
-        // Styles are handled in CSS for performance, logic here
-        document.body.appendChild(progressBar);
 
-        window.addEventListener('scroll', () => {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            progressBar.style.width = scrolled + "%";
-        });
+
+  /* ==============================================================
+     1. NAVBAR — transparent on hero, solid when scrolled
+     ============================================================== */
+  const navbar = document.getElementById('navbar');
+
+  if (navbar) {
+    const handleNavScroll = () => {
+      if (window.scrollY > 60) {
+        navbar.classList.add('nav-scrolled');
+      } else {
+        navbar.classList.remove('nav-scrolled');
+      }
     };
 
-    // 2. SMART NAVBAR TRANSFORMATION
-    const initNavbar = () => {
-        const nav = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 80) {
-                nav.classList.add('nav-scrolled');
-            } else {
-                nav.classList.remove('nav-scrolled');
-            }
-        });
-    };
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+    handleNavScroll(); // run once on load
+  }
 
-    // 3. IMAGE PARALLAX & FOCUS
-    // This makes the Chapter images "pop" as they enter the screen
-    const observeImages = () => {
-        const images = document.querySelectorAll('.chapter-img img');
-        
-        const observerOptions = {
-            threshold: 0.2, // Trigger when 20% of image is visible
-            rootMargin: "0px 0px -50px 0px"
-        };
 
-        const imageObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('img-focused');
-                    // Once animated, we can stop observing to save memory
-                    imageObserver.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
+  /* ==============================================================
+     2. HAMBURGER / MOBILE NAV
+     ============================================================== */
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
 
-        images.forEach(img => imageObserver.observe(img));
-    };
+  if (hamburger && mobileNav) {
 
-    // 4. SMOOTH SCROLL FOR "EXPLORE" BUTTON
-    const initSmoothScroll = () => {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    };
+    hamburger.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', isOpen);
+    });
 
-    // RUN ALL INITIALIZATIONS
-    createProgressBar();
-    initNavbar();
-    observeImages();
-    initSmoothScroll();
-});
+    // Close on link click
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
 
-// Add this inside your existing document.addEventListener('DOMContentLoaded', () => { ... })
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+      if (
+        mobileNav.classList.contains('active') &&
+        !mobileNav.contains(e.target) &&
+        !hamburger.contains(e.target)
+      ) {
+        mobileNav.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
 
-const initRestartScroll = () => {
-    const restartBtn = document.querySelector('a[href="#video-hero"]');
-    
-    if (restartBtn) {
-        restartBtn.addEventListener('click', function(e) {
-            e.preventDefault(); // Stop the instant jump
-            
-            // Smoothly scroll to the video section
-            const target = document.getElementById('video-hero');
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    }
-};
 
-// Call the function
-initRestartScroll();
+  /* ==============================================================
+     3. SCROLL PROGRESS BAR
+     Thin amber line at the very top of the page
+     ============================================================== */
+  const progressBar = document.createElement('div');
+  progressBar.id = 'scroll-progress';
+  progressBar.setAttribute('aria-hidden', 'true');
+  progressBar.style.cssText = `
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    width: 0%;
+    background: var(--amber);
+    z-index: 9999;
+    transition: width 0.1s linear;
+    pointer-events: none;
+  `;
+  document.body.appendChild(progressBar);
+
+  window.addEventListener('scroll', () => {
+    const scrollTop    = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress     = (scrollTop / scrollHeight) * 100;
+    progressBar.style.width = progress + '%';
+  }, { passive: true });
+
+
+}); // end DOMContentLoaded
