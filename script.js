@@ -140,5 +140,74 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
 });
 
+   /* ==============================================================
+   PARTNER FORM — async submission with feedback
+   ============================================================== */
+const partnerForm = document.querySelector('.partner-form');
+
+if (partnerForm) {
+  partnerForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitBtn = partnerForm.querySelector('.partner-submit');
+    const original  = submitBtn.innerHTML;
+
+    submitBtn.disabled  = true;
+    submitBtn.innerHTML = 'Sending… <i class="fas fa-spinner fa-spin"></i>';
+
+    try {
+      const res = await fetch(partnerForm.action, {
+        method:  'POST',
+        body:    new FormData(partnerForm),
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (res.ok) {
+        showFormMsg(
+          partnerForm,
+          'success',
+          '✅ Enquiry received. We will be in touch within 48 hours.'
+        );
+        partnerForm.reset();
+      } else {
+        throw new Error('failed');
+      }
+    } catch {
+      showFormMsg(
+        partnerForm,
+        'error',
+        '❌ Something went wrong. Email us directly at eipageorge5@gmail.com'
+      );
+    } finally {
+      submitBtn.disabled  = false;
+      submitBtn.innerHTML = original;
+    }
+  });
+}
+
+function showFormMsg(form, type, message) {
+  const existing = form.querySelector('.form-feedback');
+  if (existing) existing.remove();
+
+  const msg = document.createElement('p');
+  msg.className    = 'form-feedback';
+  msg.textContent  = message;
+  msg.style.cssText = `
+    margin-top: 0.75rem;
+    font-size: 0.83rem;
+    padding: 10px 14px;
+    border-radius: 4px;
+    border: 1px solid ${type === 'success'
+      ? 'rgba(34,197,94,0.3)'
+      : 'rgba(239,68,68,0.3)'};
+    background: ${type === 'success'
+      ? 'rgba(34,197,94,0.07)'
+      : 'rgba(239,68,68,0.07)'};
+    color: ${type === 'success' ? '#86efac' : '#fca5a5'};
+  `;
+
+  form.appendChild(msg);
+  setTimeout(() => msg.remove(), 7000);
+}
 
 }); // end DOMContentLoaded
