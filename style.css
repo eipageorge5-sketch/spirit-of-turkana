@@ -1,24 +1,4 @@
 /* ================================================================
-   THE SPIRIT OF TURKANA — STYLESHEET
-   Built section by section.
-   ================================================================
-
-   Contents so far:
-   1.  Design Tokens
-   2.  Reset & Base
-   3.  Typography
-   4.  Navbar
-   5.  Mobile Nav
-   6.  Hero Section
-   7.  Buttons
-   8.  Scroll Cue Animation
-   9.  Film Badge
-   10. Responsive
-
-   ================================================================ */
-
-
-/* ================================================================
    1. DESIGN TOKENS
    ================================================================ */
 :root {
@@ -709,6 +689,198 @@ em {
 
   .pillar-body p {
     max-width: 100%;
+  }
+}
+
+/* ================================================================
+   VISUAL CHAPTERS SECTION
+   ================================================================ */
+
+.chapters {
+  background: var(--bg);
+  padding-top: var(--section-pad);
+  padding-top: 7rem;
+}
+
+/* Section header */
+.chapters-header {
+  max-width: var(--max-width);
+  margin: 0 auto 5rem;
+  padding: 0 6%;
+}
+
+.chapters-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--amber);
+  margin-bottom: 1.5rem;
+}
+
+.chapters-heading {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.chapters-sub {
+  font-size: 0.97rem;
+  color: var(--text-muted);
+  max-width: 40ch;
+}
+
+/* Individual chapter */
+.chapter {
+  padding: 5rem 6%;
+  border-top: 1px solid var(--border);
+}
+
+.chapter-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Reverse layout — image on right */
+.chapter-reverse .chapter-inner {
+  direction: rtl;
+}
+.chapter-reverse .chapter-text,
+.chapter-reverse .chapter-img-wrap {
+  direction: ltr;
+}
+
+/* Image wrap */
+.chapter-img-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.chapter-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.chapter-img-wrap:hover .chapter-img {
+  transform: scale(1.04);
+}
+
+/* Chapter tag — top left of image */
+.chapter-tag {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #080A0F;
+  background: var(--amber);
+  padding: 4px 12px;
+  border-radius: 2px;
+}
+
+/* Chapter text */
+.chapter-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Large chapter number — decorative */
+.chapter-number {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--amber);
+  letter-spacing: 0.12em;
+  opacity: 0.7;
+}
+
+.chapter-text h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.chapter-text > p {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+  max-width: 46ch;
+}
+
+/* Community impact box */
+.chapter-impact {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1.2rem 1.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 2px solid var(--amber);
+  border-radius: 0 4px 4px 0;
+  margin-top: 0.5rem;
+}
+
+.chapter-impact i {
+  color: var(--amber);
+  font-size: 0.9rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.chapter-impact p {
+  font-size: 0.83rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+/* Alternate chapter backgrounds — subtle rhythm */
+.chapter:nth-child(odd) {
+  background: var(--bg);
+}
+.chapter:nth-child(even) {
+  background: var(--bg-surface);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .chapter-inner {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .chapter-reverse .chapter-inner {
+    direction: ltr;
+  }
+
+  .chapter-text > p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .chapter {
+    padding: 3.5rem 5%;
+  }
+
+  .chapters-header {
+    padding: 0 5%;
+    margin-bottom: 3rem;
   }
 }
 
