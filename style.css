@@ -1180,3 +1180,229 @@ em {
     align-items: flex-start;
   }
 }
+
+/* ================================================================
+   PARTNER SECTION
+   ================================================================ */
+
+.partner {
+  background: var(--bg);
+  padding: 7rem 6%;
+  border-top: 1px solid var(--border);
+}
+
+.partner-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* ── Left: Statement ── */
+.partner-rule {
+  width: 40px;
+  height: 1px;
+  background: var(--amber);
+  margin-bottom: 1.5rem;
+}
+
+.partner-heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+  margin-bottom: 1.8rem;
+}
+
+.partner-heading em {
+  font-style: italic;
+  color: var(--amber);
+}
+
+.partner-body {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+  margin-bottom: 1.2rem;
+  max-width: 46ch;
+}
+
+/* What we offer */
+.partner-offers {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  margin-top: 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.partner-offer {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.partner-offer i {
+  color: var(--amber);
+  font-size: 1rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+  width: 18px;
+}
+
+.partner-offer h4 {
+  font-family: var(--font-display);
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  letter-spacing: 0;
+}
+
+.partner-offer p {
+  font-size: 0.84rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  max-width: 40ch;
+}
+
+/* ── Right: Form ── */
+.partner-form-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 2.5rem;
+  position: sticky;
+  top: 100px;
+}
+
+.partner-form-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.partner-form-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.partner-form-header p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Form elements */
+.partner-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.form-input {
+  width: 100%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 11px 14px;
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 300;
+  outline: none;
+  transition: border-color var(--ease), box-shadow var(--ease);
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.form-input::placeholder {
+  color: rgba(154, 143, 130, 0.5);
+}
+
+.form-input:focus {
+  border-color: rgba(245, 158, 11, 0.45);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.07);
+}
+
+.form-select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%239A8F82' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+}
+
+.form-select option {
+  background: var(--bg-surface);
+  color: var(--text);
+}
+
+textarea.form-input {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.6;
+}
+
+.partner-submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .partner-inner {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .partner-form-wrap {
+    position: static;
+  }
+
+  .partner-body {
+    max-width: 100%;
+  }
+
+  .partner-offer p {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .partner-form-wrap {
+    padding: 1.8rem 1.4rem;
+  }
+}
