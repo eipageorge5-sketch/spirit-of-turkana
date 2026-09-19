@@ -95,22 +95,22 @@ Built with performance as a first-class concern — designed to load on 3G netwo
 
 ---
 
-## Repository Structure
+## 📁 Repository Structure
 
+```
 spirit-of-turkana/
-├── index.html # Full platform — all 7 sections
-├── style.css # All styles — design tokens, layout, components
-├── script.js # Navbar, lightbox, forms, scroll progress
+├── index.html        # Full platform — all 7 sections
+├── style.css         # All styles — design tokens, layout, components
+├── script.js         # Navbar, lightbox, forms, scroll progress
 ├── assets/
-│ ├── logo.png # GMeipa / Spirit of Turkana logo
-│ ├── turkana-1.jpeg # Hero & Chapter 1 — beadwork elder
-│ ├── turkana-2.jpeg # Chapter 2 & footer strip — the Jade Sea
-│ ├── turkana-3.jpeg # Chapter 3 & mission strip — traditional dance
-│ ├── turkana-4.jpeg # Chapter 4 — Abiro staff, cracked earth
-│ └── turkana-5.jpeg # Chapter 5 & support bg — path to the lake
+│   ├── logo.png          # GMeipa / Spirit of Turkana logo
+│   ├── turkana-1.jpeg    # Hero & Chapter 1 — beadwork elder
+│   ├── turkana-2.jpeg    # Chapter 2 & footer strip — the Jade Sea
+│   ├── turkana-3.jpeg    # Chapter 3 & mission strip — traditional dance
+│   ├── turkana-4.jpeg    # Chapter 4 — Abiro staff, cracked earth
+│   └── turkana-5.jpeg    # Chapter 5 & support bg — path to the lake
 └── README.md
-
-
+```
 ---
 
 ## Running Locally
