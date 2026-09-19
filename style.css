@@ -1661,3 +1661,240 @@ textarea.form-input {
     max-width: 100%;
   }
 }
+
+
+/* ================================================================
+   FOOTER
+   ================================================================ */
+
+.footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+}
+
+/* Top image strip */
+.footer-image-strip {
+  position: relative;
+  height: 220px;
+  background: url('assets/turkana-2.jpeg') center 60% / cover no-repeat;
+  overflow: hidden;
+}
+
+.footer-strip-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(8,10,15,0.3) 0%,
+    rgba(8,10,15,0.85) 100%
+  );
+}
+
+/* Main footer */
+.footer-main {
+  padding: 4rem 6%;
+  border-bottom: 1px solid var(--border);
+}
+
+.footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.4fr;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+/* Brand col */
+.footer-logo {
+  height: 44px;
+  width: auto;
+  margin-bottom: 1.2rem;
+  opacity: 0.9;
+}
+
+.footer-tagline {
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 32ch;
+  margin-bottom: 1.5rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.footer-social-link {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.875rem;
+  transition: border-color var(--ease), color var(--ease),
+              background var(--ease);
+}
+
+.footer-social-link:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+  background: var(--amber-dim);
+}
+
+/* Nav cols */
+.footer-col-title {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.footer-nav ul,
+.footer-contact ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footer-nav ul li a {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  transition: color var(--ease);
+  position: relative;
+  display: inline-block;
+}
+
+/* Underline animation on nav links */
+.footer-nav ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background: var(--amber);
+  transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.footer-nav ul li a:hover {
+  color: var(--text);
+}
+
+.footer-nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Contact col */
+.footer-contact ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.footer-contact ul li i {
+  color: var(--amber);
+  font-size: 0.8rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+  width: 14px;
+}
+
+.footer-contact ul li a {
+  color: var(--text-muted);
+  transition: color var(--ease);
+}
+
+.footer-contact ul li a:hover {
+  color: var(--amber);
+}
+
+/* Back to portfolio link */
+.footer-portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 7px 14px;
+  margin-top: 1.5rem;
+  transition: border-color var(--ease), color var(--ease),
+              background var(--ease);
+}
+
+.footer-portfolio-link:hover {
+  border-color: rgba(245,158,11,0.35);
+  color: var(--amber);
+  background: var(--amber-dim);
+}
+
+/* Bottom bar */
+.footer-bottom {
+  padding: 1.4rem 6%;
+}
+
+.footer-bottom-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.footer-copy {
+  font-size: 0.78rem;
+  color: #4a4540;
+  line-height: 1.6;
+}
+
+.footer-credit {
+  font-size: 0.78rem;
+  color: #4a4540;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-brand {
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-brand {
+    grid-column: span 1;
+  }
+
+  .footer-image-strip {
+    height: 150px;
+  }
+
+  .footer-bottom-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+}
