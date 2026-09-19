@@ -10,7 +10,7 @@
 
 ---
 
-## 📖 About This Project
+## About This Project
 
 The Spirit of Turkana is a cultural documentary platform and photo archive documenting the people, landscapes, and traditions of Turkana County, Kenya.
 
@@ -18,7 +18,7 @@ This is not a portfolio project. It is an ongoing documentation mission — buil
 
 ---
 
-## 🌍 What This Archive Does
+## What This Archive Does
 
 | Purpose | Description |
 |---|---|
@@ -28,7 +28,7 @@ This is not a portfolio project. It is an ongoing documentation mission — buil
 
 ---
 
-## 📸 The Archive
+## The Archive
 
 Five chapters currently documented:
 
@@ -44,7 +44,7 @@ More chapters added as documentation continues.
 
 ---
 
-## 💼 Work With This Archive
+## Work With This Archive
 
 ### Photography Licensing
 All photographs are original works available for licensing:
@@ -95,4 +95,66 @@ Built with performance as a first-class concern — designed to load on 3G netwo
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
+
+spirit-of-turkana/
+├── index.html # Full platform — all 7 sections
+├── style.css # All styles — design tokens, layout, components
+├── script.js # Navbar, lightbox, forms, scroll progress
+├── assets/
+│ ├── logo.png # GMeipa / Spirit of Turkana logo
+│ ├── turkana-1.jpeg # Hero & Chapter 1 — beadwork elder
+│ ├── turkana-2.jpeg # Chapter 2 & footer strip — the Jade Sea
+│ ├── turkana-3.jpeg # Chapter 3 & mission strip — traditional dance
+│ ├── turkana-4.jpeg # Chapter 4 — Abiro staff, cracked earth
+│ └── turkana-5.jpeg # Chapter 5 & support bg — path to the lake
+└── README.md
+
+
+---
+
+## Running Locally
+
+No build tools required.
+
+```bash
+# Clone
+git clone https://github.com/eipageorge5-sketch/spirit-of-turkana.git
+
+# Open
+cd spirit-of-turkana
+open index.html
+
+# Or serve locally
+python3 -m http.server 3000
+# Visit http://localhost:3000
+```
+
+---
+
+## Contact
+
+| | |
+|---|---|
+| 📧 Email | [eipageorge5@gmail.com](mailto:eipageorge5@gmail.com) |
+| 📱 WhatsApp | [+254 768 927 893](tel:+254768927893) |
+| 🐙 GitHub | [eipageorge5-sketch](https://github.com/eipageorge5-sketch) |
+| 💼 LinkedIn | [george-eipa-93ab4b371](https://www.linkedin.com/in/george-eipa-93ab4b371/) |
+| 📍 Location | Turkana County, Kenya |
+
+---
+
+## Rights & Licensing
+
+All photographs in this archive are original works.
+**All rights reserved.**
+
+Unauthorized reproduction, distribution, or commercial use of any photograph
+without a licensing agreement is prohibited.
+
+To enquire about licensing:
+📩 [eipageorge5@gmail.com](mailto:eipageorge5@gmail.com?subject=Photography%20Licensing%20Enquiry)
+
+---
+
+*Documented & built in Kenya. The story continues.*
